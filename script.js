@@ -7,4 +7,36 @@
 // Cada instancia de "User" se irá añadiendo en el array "users" con el método "push".
 // Una vez hayáis añadido todas las instancias al array de usuarios, ejecutad el método "showMeTheMoney" del tercer usuario "Roberto".
 
-const users = [];
+//Creamos la clase User y dentro creamos el constructor.
+class User {
+  
+  //Creamos el constructor y le declaramos los valores.
+  constructor(name, money, any) {
+    this.name = name;
+    this.money = money;
+    this.showMeTheMoney = any;
+  }
+}
+
+// Con fetch obtenemos la lista de usuarios que estan dentro del archivo users.json y ademas lo meto dentro del array tenmporal data.
+fetch("./users.json").then(response => response.json()).then(data => {console.log(data) // visualizamos por consola que lo recoja
+
+// Introducimos los datos en un array para tenerlos  
+let newUser = data;
+
+// Introducimos  
+newUser = newUser.map(newUser => new User(newUser.name, newUser.money, showMeTheMoneyFunc));
+     const user = [];
+     
+    newUser.forEach(newUser => user.push(newUser));
+   
+    user[2].showMeTheMoney();
+    
+  });
+
+//Funcion que mos dira el dinero del usuario seleccionado
+function showMeTheMoneyFunc() {
+  
+  // Alerta para poder mostrar el mensaje
+  alert("El dinero del usuario " + this.name + " es de: " + this.money + "$");
+}
