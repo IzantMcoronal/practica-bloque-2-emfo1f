@@ -22,10 +22,11 @@ class User {
 fetch("./users.json").then(response => response.json()).then(data => {console.log(data) // visualizamos por consola que lo recoja
 
 // Introducimos los datos en un array para tenerlos  
-let newUser = data;
+let newUser = data+;
 
-// Introducimos  
+// mapeamos los users antes de meterlos en el array con el nombre y el dinero 
 newUser = newUser.map(newUser => new User(newUser.name, newUser.money, showMeTheMoneyFunc));
+     // aqui metemos los users
      const user = [];
      
     newUser.forEach(newUser => user.push(newUser));
