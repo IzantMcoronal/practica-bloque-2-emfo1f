@@ -12,9 +12,9 @@ class User {
   
   //Creamos el constructor y le declaramos los valores.
   constructor(name, money, any) {
-    this.name = name;
-    this.money = money;
-    this.showMeTheMoney = any;
+  this.name = name;
+  this.money = money;
+  this.showMeTheMoney = any;
   }
 }
 
@@ -22,22 +22,25 @@ class User {
 fetch("./users.json").then(response => response.json()).then(data => {console.log(data) // visualizamos por consola que lo recoja
 
 // Introducimos los datos en un array para tenerlos  
-let newUser = data+;
+let newUser = data;
 
 // mapeamos los users antes de meterlos en el array con el nombre y el dinero 
 newUser = newUser.map(newUser => new User(newUser.name, newUser.money, showMeTheMoneyFunc));
-     // aqui metemos los users
-     const user = [];
+
+// aqui en este array meteremos los users
+const users = [];
      
-    newUser.forEach(newUser => user.push(newUser));
-   
-    user[2].showMeTheMoney();
-    
-  });
+//recorremos el array y pusheamos los usuarios al array user.
+newUser.forEach(newUser => users.push(newUser));
+console.log(users) // vemos que guarda los objetos como tipo User
+
+//Ejecutamos el método "showMeTheMoney" al tercer usuario del array llamado "Roberto".     
+users[2].showMeTheMoney();
+});
 
 //Funcion que mos dira el dinero del usuario seleccionado
 function showMeTheMoneyFunc() {
   
-  // Alerta para poder mostrar el mensaje
-  alert("El dinero del usuario " + this.name + " es de: " + this.money + "$");
+// Alerta para poder mostrar el mensaje
+alert("El dinero del usuario " + this.name + " es de: " + this.money + "$");
 }
